@@ -1,0 +1,355 @@
+<mat-toolbar class="navbar">
+  <div class="navbar-container">
+    <div class="logo-group">
+      <div class="icon-wrapper">
+        <mat-icon>insights</mat-icon>
+      </div>
+      <span class="logo-text">WorkSphere</span>
+    </div>
+
+    <nav class="nav-links">
+      <a mat-button routerLink="/" class="nav-item">Home</a>
+      <a mat-button routerLink="/services" class="nav-item">Services</a>
+      <a mat-button routerLink="/about" class="nav-item">About</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button mat-flat-button class="login-btn">
+        <span>Login</span>
+        <mat-icon>login</mat-icon>
+      </button>
+
+      <button mat-icon-button class="mobile-toggle">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>
+
+<header class="modern-hero">
+  <div class="mesh-gradient"></div>
+
+  <div class="hero-wrapper">
+    <div class="hero-content">
+      
+
+      <h1 class="hero-headline">
+        The OS for <br>
+        <span class="text-glow">Internal Talent.</span>
+      </h1>
+
+      <p class="hero-description">
+        WorkSphere automates resource allocation and tracks intern growth through data-driven intelligence. One platform to manage assets and talent seamlessly.
+      </p>
+
+      <div class="hero-cta-group">
+        <button mat-flat-button class="btn-primary-modern">
+          Get Started
+        </button>
+        <!-- <button mat-button class="btn-secondary-modern">
+          <mat-icon>play_circle</mat-icon> Watch Demo
+        </button> -->
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="glass-card main-ui">
+        <div class="ui-header">
+          <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="search-bar-mock"></div>
+        </div>
+        <div class="ui-body">
+          <div class="chart-line"></div>
+          <div class="chart-line short"></div>
+          <div class="chart-line medium"></div>
+        </div>
+      </div>
+
+      <div class="glass-card floating-stat pulse">
+        <mat-icon>trending_up</mat-icon>
+        <div class="stat-info">
+          <span class="stat-label">Efficiency</span>
+          <span class="stat-value">+24%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+ <div class="ocean-divider">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+    <defs>
+      <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(79, 70, 229, 0.2)" />
+      <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(124, 58, 237, 0.3)" />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="#ffffff" />
+    </g>
+  </svg>
+</div>
+<div class="custom-shape-divider-bottom">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#7c3aed"></path>
+        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5V0Z" fill="#FFFFFF"></path>
+    </svg>
+</div>
+</header>
+
+
+<!-- services -->
+<section class="services-overview">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Core Internal Services</h2>
+      <p class="section-subtitle">Dual engines powering your organization's efficiency and talent growth.</p>
+    </div>
+
+    <div class="services-grid">
+      
+      <mat-card class="service-card asset-card">
+        <div class="card-glow"></div> <div class="card-content-wrapper">
+          <div class="card-top">
+            <div class="card-badge ops-badge">Operations</div>
+            <div class="icon-header">
+              <mat-icon>inventory_2</mat-icon>
+            </div>
+          </div>
+          
+          <mat-card-header>
+            <mat-card-title>Resource Allocation</mat-card-title>
+            <mat-card-subtitle>Streamlined Asset Management</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <ul class="feature-list">
+              <li><mat-icon>bolt</mat-icon> <span><strong>Asset Requests:</strong> Self-service portal</span></li>
+              <li><mat-icon>bolt</mat-icon> <span><strong>Admin Approval:</strong> One-click workflows</span></li>
+              <li><mat-icon>bolt</mat-icon> <span><strong>Stock Alerts:</strong> Auto-notifications</span></li>
+              <li><mat-icon>bolt</mat-icon> <span><strong>Audit Logs:</strong> Full usage history</span></li>
+            </ul>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button mat-flat-button class="action-btn-ops">Manage Assets</button>
+          </mat-card-actions>
+        </div>
+      </mat-card>
+
+      <mat-card class="service-card skill-card">
+        <div class="card-glow"></div> <div class="card-content-wrapper">
+          <div class="card-top">
+            <div class="card-badge intel-badge">Intelligence</div>
+            <div class="icon-header">
+              <mat-icon>psychology</mat-icon>
+            </div>
+          </div>
+
+          <mat-card-header>
+            <mat-card-title>Skill Intelligence</mat-card-title>
+            <mat-card-subtitle>Data-Driven Talent Growth</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <ul class="feature-list">
+              <li><mat-icon>auto_awesome</mat-icon> <span><strong>Task Tracking:</strong> Progress monitoring</span></li>
+              <li><mat-icon>auto_awesome</mat-icon> <span><strong>Skill Graphs:</strong> Visual heatmaps</span></li>
+              <li><mat-icon>auto_awesome</mat-icon> <span><strong>Role Matching:</strong> AI recommendations</span></li>
+              <li><mat-icon>auto_awesome</mat-icon> <span><strong>HR Reports:</strong> Instant PDF summaries</span></li>
+            </ul>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button mat-flat-button class="action-btn-intel">Explore Insights</button>
+          </mat-card-actions>
+        </div>
+      </mat-card>
+
+    </div>
+  </div>
+</section>
+
+<section class="full-viewport-section bg-white">
+  <div class="split-layout">
+    
+    <div class="content-side">
+      <div class="text-wrapper">
+        <span class="system-tag text-indigo-600">Operations Module</span>
+        <h2 class="detail-title">Resource Allocation & <br> Inventory Management</h2>
+        <ul class="detail-list">
+          <li><mat-icon>add_shopping_cart</mat-icon> Request assets & track real-time status</li>
+          <li><mat-icon>notifications_active</mat-icon> Get notified when restricted resources become available</li>
+          <li><mat-icon>verified_user</mat-icon> Admin priority-based allocation logic</li>
+          <li><mat-icon>history_edu</mat-icon> Full allocation & usage history per user</li>
+          <li><mat-icon>event_busy</mat-icon> Automated overdue & return tracking</li>
+        </ul>
+        <button mat-raised-button color="primary" class="detail-cta">
+          Explore Resource System <mat-icon>arrow_right_alt</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="visual-side">
+      <div class="visual-mockup inventory-mockup shadow-2xl">
+        <div class="mockup-header">
+          <span>Inventory Overview</span>
+          <mat-icon class="status-dot-green">fiber_manual_record</mat-icon>
+        </div>
+
+        <div class="inventory-chart-container">
+          <div class="inventory-item">
+            <div class="item-meta">
+              <span class="item-name">MacBook Pro 14"</span>
+              <span class="item-ratio">42/50</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill indigo-fill" style="width: 84%;"></div>
+            </div>
+          </div>
+
+          <div class="inventory-item">
+            <div class="item-meta">
+              <span class="item-name">Dell UltraSharp 27"</span>
+              <span class="item-ratio">12/30</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill purple-fill" style="width: 40%;"></div>
+            </div>
+          </div>
+
+          <div class="inventory-item">
+            <div class="item-meta">
+              <span class="item-name">Mechanical Keyboards</span>
+              <span class="item-ratio">28/30</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill red-fill" style="width: 93%;"></div>
+            </div>
+          </div>
+
+          <div class="inventory-footer">
+            <div class="stat-block">
+              <span class="stat-value">12</span>
+              <span class="stat-label">Pending Approvals</span>
+            </div>
+            <div class="stat-block">
+              <span class="stat-value">04</span>
+              <span class="stat-label">Overdue Returns</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="viewport-section bg-slate-50">
+  <div class="detail-grid reverse">
+    
+    <div class="visual-block">
+      <div class="visual-mockup skill-mockup shadow-2xl">
+        <div class="mockup-header">
+          <span>Skill Radar Analysis</span>
+          <mat-icon class="pulse-icon">sensors</mat-icon>
+        </div>
+
+        <div class="radar-visual-container">
+          <svg viewBox="0 0 100 100" class="skill-radar">
+            <circle cx="50" cy="50" r="45" class="grid-line" />
+            <circle cx="50" cy="50" r="30" class="grid-line" />
+            <circle cx="50" cy="50" r="15" class="grid-line" />
+            <line x1="50" y1="5" x2="50" y2="95" class="grid-line" />
+            <line x1="5" y1="50" x2="95" y2="50" class="grid-line" />
+            <polygon points="50,15 85,50 50,85 15,50" class="radar-data-fill" />
+          </svg>
+
+          <div class="radar-labels">
+            <span class="label top">Frontend</span>
+            <span class="label right">Backend</span>
+            <span class="label bottom">Soft Skills</span>
+            <span class="label left">DevOps</span>
+          </div>
+
+          <div class="radar-score-card">
+            <span class="score-num">8.4</span>
+            <span class="score-text">Avg. Score</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <div class="text-wrapper">
+        <span class="system-tag text-purple-600">Intelligence Module</span>
+        <h2 class="detail-title">Intern Skill–Task <br> Intelligence System</h2>
+        <ul class="detail-list purple">
+          <li><mat-icon>edit_note</mat-icon> Daily task logging & productivity tracking</li>
+          <li><mat-icon>leaderboard</mat-icon> Real-time skill score calculation</li>
+          <li><mat-icon>insert_chart</mat-icon> Graphical HR dashboards for managers</li>
+          <li><mat-icon>troubleshoot</mat-icon> Automated strength & weakness detection</li>
+          <li><mat-icon>auto_awesome</mat-icon> AI-powered role recommendation engine</li>
+          <li><mat-icon>picture_as_pdf</mat-icon> Auto-generated HR performance PDFs</li>
+        </ul>
+        <button mat-raised-button class="detail-cta purple-btn">
+          Explore Skill Engine <mat-icon>arrow_right_alt</mat-icon>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="final-cta-section">
+  <div class="custom-shape-divider-top">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#7c3aed"></path>
+        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5V0Z" fill="#FFFFFF"></path>
+    </svg>
+  </div>
+
+  <div class="cta-mesh-overlay"></div>
+  
+  <div class="cta-wrapper">
+    <div class="cta-content-inner">
+      <h2 class="cta-headline">
+        Ready to manage resources and <br class="desktop-br"> 
+        talent <span class="text-gradient">intelligently?</span>
+      </h2>
+      
+      <p class="cta-body">
+        Join the organizations already using OrgPulse to streamline 
+        operations and empower their workforce.
+      </p>
+
+      <div class="cta-button-group">
+        <button mat-flat-button class="cta-btn-main">
+          Start Free Now
+        </button>
+        
+        <button mat-stroked-button class="cta-btn-alt">
+          Contact HR Team
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="glow-orb orb-left"></div>
+  <div class="glow-orb orb-right"></div>
+  <div class="ocean-divider">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+    <defs>
+      <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(79, 70, 229, 0.2)" />
+      <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(124, 58, 237, 0.3)" />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="#ffffff" />
+    </g>
+  </svg>
+</div>
+</section>
