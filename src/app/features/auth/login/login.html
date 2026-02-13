@@ -1,0 +1,144 @@
+<div class="auth-wrapper">
+    <div class="small-circle"></div>
+
+  <div class="auth-container">
+    
+
+    <!-- LEFT SIDE -->
+    <div class="auth-left">
+
+  <div class="login-box">
+    <h2>LOGIN</h2>
+    <p class="subtitle">
+  Welcome back to <span class="brand-highlight">WorkSphere</span>
+</p>
+
+<form #loginForm="ngForm" (ngSubmit)="login()" novalidate>
+
+  <!-- ROLE SELECTOR -->
+  <div class="role-selector">
+    <button
+      type="button"
+      [class.active]="role === 'EMPLOYEE'"
+      (click)="role = 'EMPLOYEE'">
+      <mat-icon>badge</mat-icon>
+      Employee
+    </button>
+
+    <button
+      type="button"
+      [class.active]="role === 'ADMIN'"
+      (click)="role = 'ADMIN'">
+      <mat-icon>admin_panel_settings</mat-icon>
+      Admin
+    </button>
+  </div>
+
+  <!-- EMAIL -->
+  <div class="input-group">
+    <mat-icon>mail</mat-icon>
+    <input
+      type="email"
+      placeholder="Email Address"
+      [(ngModel)]="email"
+      name="email"
+      #emailRef="ngModel"
+      required
+      email>
+  </div>
+
+  <!-- email error -->
+     <div class="field-error" *ngIf="emailRef.invalid && emailRef.touched">
+    <span *ngIf="emailRef.errors?.['required']">
+      Email is required
+    </span>
+    <span *ngIf="emailRef.errors?.['email']">
+      Enter a valid email address
+    </span>
+  </div>
+
+  <!-- PASSWORD -->
+  <div class="input-group">
+    <mat-icon>lock</mat-icon>
+    <input
+      [type]="hidePassword ? 'password' : 'text'"
+      placeholder="Password"
+      [(ngModel)]="password"
+      name="password"
+      #passwordRef="ngModel"
+      required
+      minlength="5">
+
+    <mat-icon
+      class="clickable"
+      (click)="hidePassword = !hidePassword">
+      {{ hidePassword ? 'visibility_off' : 'visibility' }}
+    </mat-icon>
+  </div>
+
+   <!-- PASSWORD ERROR -->
+  <div class="field-error" *ngIf="passwordRef.invalid && passwordRef.touched">
+    <span *ngIf="passwordRef.errors?.['required']">
+      Password is required
+    </span>
+    <span *ngIf="passwordRef.errors?.['minlength']">
+      Password must be at least 5 characters
+    </span>
+  </div>
+
+
+  <!-- GENERAL ERROR -->
+  <div class="error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <!-- REMEMBER + FORGOT -->
+  <div class="form-extra">
+    <label>
+      <input type="checkbox">
+      Remember me
+    </label>
+
+    <a routerLink="/forgot-password">Forgot Password?</a>
+  </div>
+
+  <!-- LOGIN BUTTON -->
+  <button class="login-btn"
+          type="submit"
+           [disabled]="loginForm.invalid || isLoading">
+
+    <span *ngIf="!isLoading">Login Now</span>
+    <span *ngIf="isLoading">Logging in...</span>
+
+  </button>
+
+</form>
+
+  </div>
+
+</div>
+
+
+    <!-- RIGHT SIDE -->
+    <div class="auth-right">
+
+  <!-- Decorative Waves -->
+  <div class="bg-waves"></div>
+
+  <!-- Glass Card -->
+  <div class="glass-card">
+    <img src="girl.png" alt="WorkSphere User" class="hero-img">
+   
+  </div>
+
+  <!-- Floating Badge -->
+  <div class="floating-badge">
+    ⚡
+  </div>
+
+</div>
+
+
+  </div>
+
+</div>

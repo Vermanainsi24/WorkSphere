@@ -1,0 +1,58 @@
+<div class="dashboard-content">
+  <div class="page-header">
+    <h1 class="header-title">Resource Request</h1>
+    <p class="header-subtitle">Submit a request for new equipment or materials</p>
+  </div>
+
+  <mat-card class="elite-form-card">
+    <form (ngSubmit)="submitRequest()" #requestForm="ngForm" class="form-body">
+      
+      <div class="input-grid">
+        
+        <mat-form-field appearance="fill" class="elite-input">
+          <mat-icon matPrefix>inventory_2</mat-icon>
+          <mat-label>What do you need?*</mat-label>
+          <mat-select [(ngModel)]="request.resourceId" name="resourceId" required>
+            <mat-option *ngFor="let res of resources" [value]="res.id">
+              {{ res.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="elite-input">
+          <mat-icon matPrefix [class.priority-high]="request.priority === 'HIGH'">flag</mat-icon>
+          <mat-label>Priority Level*</mat-label>
+          <mat-select [(ngModel)]="request.priority" name="priority" required>
+            <mat-option value="HIGH" class="opt-high">High Priority</mat-option>
+            <mat-option value="MEDIUM" class="opt-med">Medium Priority</mat-option>
+            <mat-option value="LOW" class="opt-low">Low Priority</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="elite-input full-width">
+          <mat-icon matPrefix>notes</mat-icon>
+          <mat-label>Justification / Description*</mat-label>
+          <textarea matInput 
+                    rows="5" 
+                    [(ngModel)]="request.description" 
+                    name="description" 
+                    required 
+                    placeholder="Briefly explain your requirement..."></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="form-footer">
+  <button mat-flat-button class="btn-save" type="submit" [disabled]="!requestForm.valid">
+    Send Request
+  </button>
+  
+ 
+
+  <button mat-flat-button class="btn-cancel" type="button">
+    Cancel
+  </button>
+</div>
+
+    </form>
+  </mat-card>
+</div>

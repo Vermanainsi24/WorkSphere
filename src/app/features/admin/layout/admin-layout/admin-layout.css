@@ -1,0 +1,254 @@
+.layout-container {
+  height: 100vh;
+  background-color: #f8fafc;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 280px;
+  border: none !important;
+  background-color: #ffffff !important;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.02);
+}
+
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.logo-section {
+  padding: 32px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-circle {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.5px;
+}
+
+/* Nav Items & Active States */
+.nav-list {
+  padding: 0 16px;
+  flex: 1;
+}
+
+.nav-item {
+  border-radius: 12px !important;
+  margin-bottom: 4px !important;
+  color: #64748b !important;
+  height: 48px !important;
+}
+
+.active-link {
+  background-color: #eef2ff !important;
+  color: #4f46e5 !important;
+}
+
+.active-link mat-icon {
+  color: #4f46e5 !important;
+}
+
+.nav-divider {
+  height: 1px;
+  background-color: #f1f5f9;
+  margin: 16px;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+  padding: 20px;
+  background-color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.avatar-icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  color: #94a3b8;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.u-name { font-size: 14px; font-weight: 600; color: #1e293b; }
+.u-role { font-size: 12px; color: #94a3b8; }
+.logout-btn { color: #ef4444; }
+
+/* Main Content & Topbar */
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar {
+  background: #ffffff !important;
+  height: 72px !important;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  padding: 0 32px !important;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.add-btn {
+  background-color: #6366f1 !important;
+  color: white !important;
+  border-radius: 10px !important;
+  margin-left: 16px;
+}
+
+.content-body {
+  padding: 32px;
+  overflow-y: auto;
+}
+:root {
+  --sidebar-width: 280px;
+  --topbar-height: 72px;
+  --main-padding: 32px;  /* Standard spacing for content body */
+  --grid-gap: 24px;      /* Spacing between form fields */
+  --card-padding: 40px;  /* Internal padding for cards */
+  --border-radius: 16px;
+}
+
+/* 1. Main Content Container */
+.main-content {
+  background-color: #f8fafc;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2. Topbar / Breadcrumb Spacing (Matches image_5cfb3a.png) */
+.topbar {
+  background: #ffffff !important;
+  height: var(--topbar-height) !important;
+  padding: 0 var(--main-padding) !important;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Balanced spacing between text and chevron */
+}
+
+/* 3. Form Card Spacing (Matches image_5c7f38.png) */
+.content-body {
+  padding: var(--main-padding);
+  overflow-y: auto;
+}
+
+.form-card {
+  max-width: 1000px; /* Wider for dashboard feel */
+  margin: 0 auto;
+  padding: var(--card-padding) !important;
+  border-radius: var(--border-radius);
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* 4. Form Grid & Input Spacing (Matches image_5c8397.png) */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--grid-gap); /* Vertical and Horizontal spacing */
+  margin-bottom: 32px;
+}
+
+/* Custom Input Wrapper Spacing */
+::ng-deep .custom-input .mat-mdc-text-field-wrapper {
+  background-color: #f1f5f9 !important;
+  border-radius: 12px !important;
+  padding: 8px 20px !important; /* Internal breathing room */
+}
+
+/* 5. Action Button Row Spacing */
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Space between Save, Add Another, and Cancel */
+  margin-top: 40px;
+}
+
+.btn-primary, .btn-secondary {
+  height: 48px;
+  padding: 0 32px !important;
+  border-radius: 50px !important;
+}
+.topbar {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  height: 72px !important;
+  padding: 0 32px !important; /* Proper horizontal spacing */
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+}
+
+/* The Spacer */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Right Side Actions Container */
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Precise spacing between notification, button, and settings */
+}
+
+/* Notifications Badge Spacing */
+.notification-btn {
+  color: #64748b;
+  margin-right: 4px;
+}
+
+/* Add Employee Button (Top Right Focus) */
+.add-btn {
+  background-color: #6366f1 !important; /* Indigo Brand Color */
+  color: white !important;
+  border-radius: 10px !important;
+  padding: 0 20px !important;
+  height: 44px !important;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between '+' icon and text */
+}
+
+.add-btn:hover {
+  background-color: #4f46e5 !important;
+  transform: translateY(-1px);
+}

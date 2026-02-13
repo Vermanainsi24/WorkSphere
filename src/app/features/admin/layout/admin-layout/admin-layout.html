@@ -1,0 +1,84 @@
+<mat-sidenav-container class="layout-container">
+  <mat-sidenav #sidenav mode="side" opened class="sidebar">
+    <div class="sidebar-wrapper">
+      
+      <div class="logo-section">
+        <div class="logo-circle">
+          <mat-icon>workspace_premium</mat-icon>
+        </div>
+        <span class="brand-name">WorkSphere</span>
+      </div>
+
+      <mat-nav-list class="nav-list">
+        <a mat-list-item routerLink="/admin/dashboard" routerLinkActive="active-link" class="nav-item">
+          <mat-icon matListItemIcon>dashboard</mat-icon>
+          <span matListItemTitle>Dashboard</span>
+        </a>
+
+        <a mat-list-item routerLink="/admin/employees" routerLinkActive="active-link" class="nav-item">
+          <mat-icon matListItemIcon>people_alt</mat-icon>
+          <span matListItemTitle>Employees</span>
+        </a>
+
+        <a mat-list-item routerLink="/admin/inventory" routerLinkActive="active-link" class="nav-item">
+          <mat-icon matListItemIcon>inventory_2</mat-icon>
+          <span matListItemTitle>Inventory</span>
+        </a>
+
+        <a mat-list-item routerLink="/admin/attendance" routerLinkActive="active-link" class="nav-item">
+          <mat-icon matListItemIcon>event_available</mat-icon>
+          <span matListItemTitle>Attendance</span>
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a mat-list-item routerLink="/admin/settings" routerLinkActive="active-link" class="nav-item">
+          <mat-icon matListItemIcon>settings</mat-icon>
+          <span matListItemTitle>Settings</span>
+        </a>
+      </mat-nav-list>
+
+      <div class="sidebar-footer">
+        <div class="user-avatar-container">
+          <mat-icon class="avatar-icon">account_circle</mat-icon>
+        </div>
+        <div class="user-details">
+          <span class="u-name">Admin User</span>
+          <span class="u-role">Super Admin</span>
+        </div>
+        <button mat-icon-button class="logout-btn">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="main-content">
+   <mat-toolbar class="topbar">
+  <div class="breadcrumb">
+    <span>Administration</span>
+    <mat-icon>chevron_right</mat-icon>
+    <span class="current-page">Dashboard</span>
+  </div>
+  
+  <span class="spacer"></span>
+
+  <div class="toolbar-actions">
+    <button mat-icon-button class="notification-btn" [matBadge]="3" matBadgeColor="warn">
+      <mat-icon>notifications</mat-icon>
+    </button>
+
+    <button mat-flat-button class="add-btn" routerLink="/admin/add-employee">
+      <mat-icon>add</mat-icon>
+      Add Employee
+    </button>
+
+    
+  </div>
+</mat-toolbar>
+
+    <div class="content-body">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,165 @@
+/* Container & Global Reset */
+.layout-container {
+  height: 100vh;
+  background-color: #f8fafc; /* Professional off-white/slate */
+}
+
+/* Sidebar Styling (WorkSphere Identity) */
+.sidebar {
+  width: 260px;
+  background-color: #ffffff !important;
+  border-right: 1px solid #e2e8f0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  padding: 32px 24px;
+}
+
+.logo h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #6366f1; /* Brand Indigo */
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* Navigation List & Active States */
+mat-nav-list {
+  padding: 0 16px !important;
+}
+
+mat-nav-list a {
+  border-radius: 12px !important;
+  margin-bottom: 4px !important;
+  height: 48px !important;
+  color: #64748b !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+mat-nav-list a:hover {
+  background-color: #f1f5f9 !important;
+  color: #1e293b !important;
+}
+
+/* Highlight for the current page */
+.active-link {
+  background-color: #eef2ff !important;
+  color: #6366f1 !important;
+  font-weight: 600 !important;
+}
+
+mat-nav-list a mat-icon {
+  margin-right: 12px !important;
+}
+
+/* Topbar (Breadcrumb & Actions) */
+.topbar {
+  background-color: #ffffff !important;
+  height: 72px !important;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  padding: 0 32px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Toolbar Icons */
+.topbar button {
+  color: #64748b !important;
+  margin-left: 8px;
+}
+
+/* Content Area Spacing */
+.content {
+  padding: 32px;
+  overflow-y: auto;
+  max-height: calc(100vh - 72px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80px;
+  }
+  .logo h2, span {
+    display: none; /* Icon-only view for smaller screens */
+  }
+}
+/* Logo Container Alignment */
+.logo {
+  padding: 32px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Precise spacing between icon and text */
+}
+
+/* Branded Icon Circle */
+.logo-circle {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); /* Indigo Brand Gradient */
+  color: white;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px; /* Modern "Squircle" shape */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+}
+
+/* Brand Typography */
+.brand-name {
+  font-size: 22px;
+  font-weight: 800; /* Bold, professional weight */
+  color: #1e293b; /* Dark slate for high readability */
+  letter-spacing: -0.5px; /* Tight tracking for a modern look */
+  font-family: 'Inter', sans-serif;
+}
+
+/* Icon Resizing */
+.logo-circle mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+@media (max-width: 768px) {
+  .brand-name {
+    display: none; /* Only show the icon-circle in mobile/collapsed view */
+  }
+  .logo {
+    justify-content: center;
+    padding: 24px 0;
+  }
+}
+.sidebar {
+  width: 280px;
+  background-color: #ffffff !important;
+  /* Soft, multi-layered shadow for professional depth */
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.04), 1px 0 10px rgba(0, 0, 0, 0.03) !important;
+  border-right: 1px solid #f1f5f9 !important; /* Extremely subtle border */
+  display: flex;
+  flex-direction: column;
+  z-index: 10; /* Ensures the shadow sits above the content area */
+}
+/* Sidebar Nav Item Shadows */
+mat-nav-list a {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.active-link {
+  background-color: #eef2ff !important;
+  color: #6366f1 !important;
+  font-weight: 600 !important;
+  /* Adds a subtle "glow" effect to the active link */
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.12) !important;
+}
+
+mat-nav-list a:hover:not(.active-link) {
+  background-color: #f8fafc !important;
+  transform: translateX(4px); /* Slight slide-in effect */
+}

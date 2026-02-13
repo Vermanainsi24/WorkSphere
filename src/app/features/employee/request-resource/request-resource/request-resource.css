@@ -1,0 +1,174 @@
+/* Header & Title */
+.page-header {
+  margin-bottom: 24px;
+  padding-left: 8px;
+}
+
+.header-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.header-subtitle {
+  color: #64748b;
+  margin: 4px 0 0;
+}
+
+/* Card Styling */
+.elite-form-card {
+  border-radius: 20px !important;
+  border: none;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05) !important;
+  background: white;
+  padding: 16px !important;
+}
+
+.form-body {
+  padding: 24px;
+}
+
+/* Elite Input Styling (Matches image_5e4cfa.png) */
+::ng-deep .elite-input .mat-mdc-text-field-wrapper {
+  background-color: #f1f5f9 !important; /* Soft background */
+  border-radius: 12px !important;
+  transition: all 0.2s ease-in-out !important;
+  padding: 8px 16px !important;
+}
+
+/* Input Focus Interaction */
+::ng-deep .elite-input.mat-focused .mat-mdc-text-field-wrapper {
+  background-color: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
+}
+
+::ng-deep .elite-input .mdc-line-ripple {
+  display: none !important; /* Removes outdated bottom line */
+}
+
+::ng-deep .elite-input .mat-mdc-form-field-icon-prefix {
+  padding: 0 !important;
+  border-right: none !important; /* FIX: Removes vertical separator line */
+  margin-right: 12px;
+  color: #6366f1; /* Indigo brand color */
+}
+
+/* Button Layout (Equal height) */
+.form-footer {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-save, .btn-secondary, .btn-cancel {
+  height: 48px !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  padding: 0 24px !important;
+}
+
+.btn-save {
+  background-color: #6366f1 !important;
+  color: white !important;
+}
+
+.btn-secondary {
+  border: 1px solid #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+.btn-cancel {
+  background-color: #fee2e2 !important;
+  color: #ef4444 !important;
+}
+
+/* Grid System */
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.full-width { grid-column: span 2; }
+
+/* Status Colors */
+.priority-high { color: #ef4444 !important; }
+.opt-high { color: #ef4444; font-weight: 600; }
+
+@media (max-width: 600px) {
+  .input-grid { grid-template-columns: 1fr; }
+  .full-width { grid-column: span 1; }
+}
+/* Container for alignment */
+.form-footer {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  align-items: center;
+}
+
+/* Base styling for all buttons to ensure equal shape */
+.btn-save, .btn-secondary, .btn-cancel {
+  height: 48px !important;
+  padding: 0 28px !important;
+  border-radius: 10px !important; /* Soft, modern rounding */
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.3px !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: none !important;
+}
+
+/* Primary Action: Indigo Gradient (Professional Organization Feel) */
+.btn-save {
+  background: linear-gradient(180deg, #6366f1 0%, #4f46e5 100%) !important;
+  color: white !important;
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3), 0 2px 4px -2px rgba(79, 70, 229, 0.3) !important;
+}
+
+.btn-save:hover:not(:disabled) {
+  background: linear-gradient(180deg, #4f46e5 0%, #4338ca 100%) !important;
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+.btn-save:active {
+  transform: translateY(0);
+}
+
+/* Secondary Action: Clean Bordered Style */
+.btn-secondary {
+  background-color: #ffffff !important;
+  color: #475569 !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.btn-secondary:hover {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+}
+
+/* Destructive Action: Soft Red Alert */
+.btn-cancel {
+  background-color: #fee2e2 !important;
+  color: #ef4444 !important;
+}
+
+.btn-cancel:hover {
+  background-color: #fecaca !important;
+  color: #dc2626 !important;
+}
+
+/* Disabled State: Clean Slate */
+button:disabled {
+  background: #f1f5f9 !important;
+  color: #94a3b8 !important;
+  box-shadow: none !important;
+  cursor: not-allowed;
+}
