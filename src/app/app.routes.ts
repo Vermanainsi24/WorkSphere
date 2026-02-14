@@ -86,7 +86,8 @@ import { AddEmployeeComponent } from './features/admin/manage-users/add-employee
 import { EmployeeLayoutComponent } from './features/employee/layout/employee-layout/employee-layout';
 import { EmployeeDashboardComponent } from './features/employee/dashboard/employee-dashboard/employee-dashboard';
 import { RequestResourceComponent } from './features/employee/request-resource/request-resource/request-resource';
-
+import { HistoryComponent} from './features/employee/history/history';
+import { NotificationsComponent } from './features/employee/notifications/notifications';
 export const routes: Routes = [
 
   // =============================
@@ -131,14 +132,19 @@ export const routes: Routes = [
     children: [
       { path: 'dashboard', component: EmployeeDashboardComponent },
       { path: 'request', component: RequestResourceComponent },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'history', component: HistoryComponent },
+    { path: 'notifications', component: NotificationsComponent }
     ]
   },
+ 
 
   // =============================
   // 🚫 FALLBACK ROUTE
   // =============================
 
   { path: '**', redirectTo: '' }
+
+
 
 ];

@@ -1,0 +1,11 @@
+<mat-card class="notification-card">
+  <h2>Notifications</h2>
+
+  <mat-list>
+    <mat-list-item *ngFor="let note of notifications">
+      <mat-icon matListIcon color="primary">notifications</mat-icon>
+      <div matLine>{{ note.message }}</div>
+      <div matLine class="time">{{ note.time }}</div>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

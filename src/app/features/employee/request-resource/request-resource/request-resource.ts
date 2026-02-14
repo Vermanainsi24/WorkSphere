@@ -7,6 +7,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+
+import { ResourceRequestService } from '../../../../core/services/resource-request.service'; // ✅ ADD THIS
 
 @Component({
   selector: 'app-request-resource',
@@ -19,43 +22,93 @@ import { MatIcon } from '@angular/material/icon';
     MatSelectModule,
     MatButtonModule,
     MatCardModule,
-    MatIcon
+    MatIcon,
+    MatSnackBarModule
   ],
   templateUrl: './request-resource.html',
   styleUrls: ['./request-resource.css']
 })
 export class RequestResourceComponent {
 
-  // Mock resource list (replace with API later)
-  resources = [
-    { id: 1, name: 'Laptop' },
-    { id: 2, name: 'Monitor' },
-    { id: 3, name: 'Office Chair' }
-  ];
+  
+  isSubmitting = false;
 
   request = {
-    resourceId: '',
-    description: '',
-    priority: 'LOW'
-  };
+  resourceId: 0,
+  priority: '',
+  description: ''
+};
+
+
+  resources = [
+  { id: 1, name: 'Laptop' },
+  { id: 2, name: 'Monitor' }
+];
+
+  constructor(
+    private requestService: ResourceRequestService,
+    private resourceService: ResourceRequestService,
+    private snackBar: MatSnackBar
+  ) {}
+
+  // ngOnInit() {
+  //   this.loadResources();
+  // }
+
+  // loadResources() {
+  //   this.resourceService.getAvailableResources()
+  //     .subscribe(res => {
+  //       this.resources = res;
+  //     });
+  // }
+
 
   submitRequest() {
 
-    const payload = {
-      ...this.request,
-      status: 'APPLIED',
-      requestDate: new Date()
-    };
+  if (this.isSubmitting) return;
 
-    console.log('Request Submitted:', payload);
+  this.isSubmitting = true;
 
-    alert('Resource request submitted successfully!');
+  const selectedResource = this.resources.find(
+    r => r.id == this.request.resourceId
+  );
 
-    // Reset form
-    this.request = {
-      resourceId: '',
-      description: '',
-      priority: 'LOW'
-    };
-  }
+  const payload = {
+  resourceName: selectedResource?.name,
+  description: this.request.description,
+  priority: this.request.priority
+};
+
+
+  this.requestService.createRequest(payload)
+    .subscribe({
+      next: () => {
+        this.snackBar.open(
+          'Request submitted successfully!',
+          'Close',
+          { duration: 3000 }
+        );
+
+        this.request = {
+          resourceId: 0,
+          priority: '',
+          description: ''
+        };
+
+        this.isSubmitting = false;
+      },
+      error: (err) => {
+        console.error(err);
+
+        this.snackBar.open(
+          'Failed to submit request',
+          'Close',
+          { duration: 3000 }
+        );
+
+        this.isSubmitting = false;
+      }
+    });
+}
+
 }

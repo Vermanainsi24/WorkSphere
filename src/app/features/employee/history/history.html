@@ -1,0 +1,15 @@
+<mat-card class="history-card">
+  <h2>My Resource Allocation History</h2>
+
+  <table mat-table [dataSource]="[]">
+
+    <ng-container matColumnDef="resource">
+      <th mat-header-cell *matHeaderCellDef> Resource </th>
+      <td mat-cell *matCellDef="let element"> Laptop </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['resource']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['resource'];"></tr>
+
+  </table>
+</mat-card>

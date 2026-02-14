@@ -30,4 +30,5 @@ import { MatDividerModule } from '@angular/material/divider';
 })
 export class AdminLayoutComponent {
   unreadNotifications = 3; // temporary mock value
+  pendingRequests=2;
 }

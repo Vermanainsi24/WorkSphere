@@ -10,6 +10,7 @@ export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
         Authorization: `Bearer ${token}`
       }
     });
+
     return next(cloned);
   }
 

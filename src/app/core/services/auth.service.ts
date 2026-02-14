@@ -36,7 +36,7 @@ export class AuthService {
 
   registerEmployee(employee: any) {
   return this.http.post(
-    'http://localhost:8080/api/auth/register',
+    'http://localhost:8080/api/admin/register',
     employee
   );
 }

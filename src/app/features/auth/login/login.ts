@@ -70,6 +70,7 @@ export class LoginComponent {
   localStorage.setItem('token', response.token);
   localStorage.setItem('role', response.role);
   localStorage.setItem('userId', response.userId.toString());
+  localStorage.setItem('email', response.email);  // 🔥 ADD THIS
 
   const userRole = response.role.toUpperCase();
 
