@@ -123,9 +123,9 @@
 
         <span class="spacer"></span>
 
-        <span class="badge" *ngIf="pendingRequests > 0">
+        <!-- <span class="badge" *ngIf="pendingRequests > 0">
           {{ pendingRequests }}
-        </span>
+        </span> -->
       </a>
 
       <a mat-list-item routerLink="/admin/history"
@@ -175,8 +175,9 @@
         <span class="spacer"></span>
 
         <span class="badge" *ngIf="unreadNotifications > 0">
-          {{ unreadNotifications }}
-        </span>
+  {{ unreadNotifications }}
+</span>
+
       </a>
 
       <a mat-list-item routerLink="/login">
@@ -190,7 +191,7 @@
   <!-- CONTENT AREA -->
   <mat-sidenav-content>
 
-    <mat-toolbar class="topbar">
+    <!-- <mat-toolbar class="topbar">
       <span>Admin Dashboard</span>
       <span class="spacer"></span>
 
@@ -203,7 +204,41 @@
       <button mat-icon-button>
         <mat-icon>account_circle</mat-icon>
       </button>
-    </mat-toolbar>
+    </mat-toolbar> -->
+
+    <div class="top-bar">
+
+  <button mat-icon-button
+          [matMenuTriggerFor]="notificationMenu"
+          class="notification-btn">
+
+    <mat-icon>notifications</mat-icon>
+
+    <span class="badge" *ngIf="unreadCount > 0">
+      {{ unreadCount }}
+    </span>
+
+  </button>
+
+  <mat-menu #notificationMenu="matMenu">
+    <ng-container *ngIf="notifications.length > 0; else noNotifications">
+      
+      <button mat-menu-item *ngFor="let notif of notifications">
+        {{ notif.message }}
+      </button>
+
+    </ng-container>
+
+    <ng-template #noNotifications>
+      <button mat-menu-item disabled>
+        No new notifications
+      </button>
+    </ng-template>
+
+  </mat-menu>
+
+</div>
+
 
     <div class="content">
       <router-outlet></router-outlet>

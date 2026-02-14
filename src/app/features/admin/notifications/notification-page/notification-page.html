@@ -1,0 +1,37 @@
+<div class="notification-container">
+
+  <h2 class="page-title">
+    <mat-icon>notifications</mat-icon>
+    Notifications
+  </h2>
+
+  <mat-card *ngFor="let notif of notifications"
+            class="notification-card"
+            [ngClass]="{'unread': !notif.isRead}">
+
+    <div class="notif-content">
+      <div class="message">
+        {{ notif.message }}
+      </div>
+
+      <div class="time">
+        {{ notif.createdAt | date:'short' }}
+      </div>
+    </div>
+
+    <div class="actions">
+      <button mat-button
+              color="primary"
+              *ngIf="!notif.isRead"
+              (click)="markAsRead(notif)">
+        Mark as Read
+      </button>
+    </div>
+
+  </mat-card>
+
+  <div *ngIf="notifications.length === 0" class="empty">
+    No notifications available.
+  </div>
+
+</div>

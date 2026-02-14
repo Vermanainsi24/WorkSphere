@@ -11,10 +11,19 @@ export class ResourceRequestService {
 
   constructor(private http: HttpClient) {}
 
-  private baseUrl = 'http://localhost:8080/api/resource-request';
+  // private baseUrl = 'http://localhost:8080/api/resource-request';
+    getAllResources() {
+      return this.http.get<any[]>(
+        'http://localhost:8080/api/resources/all'
+      );
+    }
 
-createRequest(payload: any) {
-  return this.http.post(`${this.baseUrl}/create`, payload);
-}
+    createRequest(payload: any) {
+      return this.http.post(
+        'http://localhost:8080/api/resource-request/create',
+        payload
+      );
+    }
+
 
 }

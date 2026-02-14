@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatIcon } from '@angular/material/icon';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
 
-import { ResourceRequestService } from '../../../../core/services/resource-request.service'; // ✅ ADD THIS
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ResourceRequestService } from '../../../../core/services/resource-request.service';
 
 @Component({
   selector: 'app-request-resource',
@@ -22,93 +24,123 @@ import { ResourceRequestService } from '../../../../core/services/resource-reque
     MatSelectModule,
     MatButtonModule,
     MatCardModule,
-    MatIcon,
-    MatSnackBarModule
+    MatIconModule,
+    MatSnackBarModule,
+  MatProgressSpinnerModule
   ],
   templateUrl: './request-resource.html',
   styleUrls: ['./request-resource.css']
 })
-export class RequestResourceComponent {
+export class RequestResourceComponent implements OnInit {
 
-  
   isSubmitting = false;
+  isLoadingResources = false;
 
+  // Request model
   request = {
-  resourceId: 0,
-  priority: '',
-  description: ''
-};
+    resourceId: null as number | null,
+    priority: '',
+    description: ''
+  };
 
-
-  resources = [
-  { id: 1, name: 'Laptop' },
-  { id: 2, name: 'Monitor' }
-];
+  // Resources fetched from backend
+  resources: any[] = [];
 
   constructor(
     private requestService: ResourceRequestService,
-    private resourceService: ResourceRequestService,
     private snackBar: MatSnackBar
   ) {}
 
-  // ngOnInit() {
-  //   this.loadResources();
-  // }
+  // ========================================
+  // INIT
+  // ========================================
+  ngOnInit(): void {
+    this.loadResources();
+  }
 
-  // loadResources() {
-  //   this.resourceService.getAvailableResources()
-  //     .subscribe(res => {
-  //       this.resources = res;
-  //     });
-  // }
+  // ========================================
+  // LOAD RESOURCES FROM BACKEND
+  // ========================================
+  loadResources(): void {
 
+    this.isLoadingResources = true;
 
-  submitRequest() {
+    this.requestService.getAllResources()
+      .subscribe({
+        next: (data) => {
+          this.resources = data;
+          this.isLoadingResources = false;
+        },
+        error: (err) => {
+          console.error('Failed to load resources', err);
 
-  if (this.isSubmitting) return;
+          this.snackBar.open(
+            'Failed to load resources',
+            'Close',
+            { duration: 3000 }
+          );
 
-  this.isSubmitting = true;
+          this.isLoadingResources = false;
+        }
+      });
+  }
 
-  const selectedResource = this.resources.find(
-    r => r.id == this.request.resourceId
-  );
+  // ========================================
+  // SUBMIT REQUEST
+  // ========================================
+  submitRequest(): void {
 
-  const payload = {
-  resourceName: selectedResource?.name,
-  description: this.request.description,
-  priority: this.request.priority
-};
+    if (this.isSubmitting) return;
 
+    // Basic validation
+    if (!this.request.resourceId || !this.request.priority) {
+      this.snackBar.open(
+        'Please select resource and priority',
+        'Close',
+        { duration: 3000 }
+      );
+      return;
+    }
 
-  this.requestService.createRequest(payload)
-    .subscribe({
-      next: () => {
-        this.snackBar.open(
-          'Request submitted successfully!',
-          'Close',
-          { duration: 3000 }
-        );
+    this.isSubmitting = true;
 
-        this.request = {
-          resourceId: 0,
-          priority: '',
-          description: ''
-        };
+    const payload = {
+      resourceId: this.request.resourceId,
+      description: this.request.description,
+      priority: this.request.priority
+    };
 
-        this.isSubmitting = false;
-      },
-      error: (err) => {
-        console.error(err);
+    this.requestService.createRequest(payload)
+      .subscribe({
+        next: () => {
 
-        this.snackBar.open(
-          'Failed to submit request',
-          'Close',
-          { duration: 3000 }
-        );
+          this.snackBar.open(
+            'Request submitted successfully!',
+            'Close',
+            { duration: 3000 }
+          );
 
-        this.isSubmitting = false;
-      }
-    });
-}
+          // Reset form
+          this.request = {
+            resourceId: null,
+            priority: '',
+            description: ''
+          };
 
+          this.isSubmitting = false;
+        },
+        error: (err) => {
+
+          console.error('Request submission failed', err);
+
+          this.snackBar.open(
+            'Failed to submit request',
+            'Close',
+            { duration: 3000 }
+          );
+
+          this.isSubmitting = false;
+        }
+      });
+  }
 }

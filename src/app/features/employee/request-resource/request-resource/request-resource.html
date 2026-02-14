@@ -1,4 +1,4 @@
-<div class="dashboard-content">
+<!-- <div class="dashboard-content">
   <div class="page-header">
     <h1 class="header-title">Resource Request</h1>
     <p class="header-subtitle">Submit a request for new equipment or materials</p>
@@ -11,12 +11,18 @@
         
         <mat-form-field appearance="fill" class="elite-input">
           <mat-icon matPrefix>inventory_2</mat-icon>
-          <mat-label>What do you need?*</mat-label>
-          <mat-select [(ngModel)]="request.resourceId" name="resourceId" required>
+          <mat-label>What do you need?*</mat-label> -->
+          <!-- <mat-select [(ngModel)]="request.resourceId" name="resourceId" required>
             <mat-option *ngFor="let res of resources" [value]="res.id">
               {{ res.name }}
             </mat-option>
-          </mat-select>
+          </mat-select> -->
+          <!-- <mat-select [(ngModel)]="request.resourceId" name="resourceId" required>
+  <mat-option *ngFor="let r of resources" [value]="r.id">
+    {{ r.name }}
+  </mat-option>
+</mat-select>
+
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="elite-input">
@@ -57,5 +63,76 @@
 </div>
 
     </form>
+  </mat-card>
+</div> -->
+
+<div class="form-page-container">
+  <div class="page-header">
+    <h1 class="header-title">Resource Request</h1>
+    <p class="header-subtitle">Submit details below to request equipment or workspace assets.</p>
+  </div>
+  
+
+
+  <mat-card class="elite-form-card">
+    <div class="form-body">
+      
+      <form #resourceForm="ngForm">
+        <div class="input-grid">
+          
+          <div class="field-group">
+  <label class="field-label">What do you need?</label>
+
+  <mat-form-field appearance="outline" class="elite-input">
+    <mat-icon matPrefix>inventory_2</mat-icon>
+    <mat-select [(ngModel)]="request.resourceId" name="resourceId">
+      <mat-option *ngFor="let r of resources" [value]="r.resourceId">
+        {{ r.resourceName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+
+          <div class="field-group">
+  <label class="field-label">Priority Level</label>
+
+  <mat-form-field appearance="outline" class="elite-input">
+    <mat-icon matPrefix>speed</mat-icon>
+    <mat-select [(ngModel)]="request.priority" name="priority">
+      <mat-option value="HIGH">High</mat-option>
+      <mat-option value="MEDIUM">Medium</mat-option>
+      <mat-option value="LOW">Low</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="field-group full-width">
+  <label class="field-label">Justification / Description</label>
+
+  <mat-form-field appearance="outline" class="elite-input full-width">
+    <mat-icon matPrefix>edit_note</mat-icon>
+    <textarea matInput
+              [(ngModel)]="request.description"
+              name="description"
+              rows="4">
+    </textarea>
+  </mat-form-field>
+</div>
+
+        </div>
+
+        <div class="form-footer">
+          <button mat-flat-button class="btn-save" (click)="submitRequest()">
+            <mat-icon>send</mat-icon> Submit Request
+          </button>
+          
+          <button mat-button type="button" class="btn-reset" (click)="resourceForm.resetForm()">
+            <mat-icon>restart_alt</mat-icon>
+            Reset Form
+          </button>
+        </div>
+      </form>
+    </div>
   </mat-card>
 </div>

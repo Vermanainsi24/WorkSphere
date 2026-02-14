@@ -116,7 +116,14 @@ export const routes: Routes = [
       { path: 'dashboard', component: AdminDashboardComponent },
       { path: 'requests', component: RequestListComponent },
       { path: 'add-employee', component: AddEmployeeComponent },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      {
+  path: 'notifications',
+  loadComponent: () =>
+    import('./features/admin/notifications/notification-page/notification-page')
+      .then(m => m.NotificationPageComponent)
+}
+
     ]
   },
 
