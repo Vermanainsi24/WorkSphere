@@ -10,6 +10,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
 import { CommonModule } from '@angular/common';   // 👈 ADD THIS
 
+
 import { NotificationService, Notification } from '../../../../core/services/notification.service';
 
 @Component({

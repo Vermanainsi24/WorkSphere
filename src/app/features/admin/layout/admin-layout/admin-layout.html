@@ -60,16 +60,23 @@
 
       <div class="section-title">System</div>
 
-      <a mat-list-item routerLink="/admin/notification" routerLinkActive="active-link">
-        <mat-icon>notifications</mat-icon>
-        <span>Notifications</span>
+       <a mat-list-item routerLink="/admin/notifications">
 
-        <span class="spacer"></span>
+  <mat-icon>notifications</mat-icon>
+  <span>Notifications</span>
 
-        <span class="badge" *ngIf="unreadNotifications > 0">
-          {{ unreadNotifications }}
-        </span>
-      </a>
+  <span class="spacer"></span>
+
+  <button mat-icon-button
+          matBadge="{{ unreadNotifications }}"
+          matBadgeColor="warn"
+          matBadgeOverlap="false"
+          matBadgeSize="small"
+          aria-label="Unread notifications">
+  </button>
+
+</a>
+
 
       <a mat-list-item routerLink="/login">
         <mat-icon>logout</mat-icon>
@@ -93,15 +100,18 @@
 
         <!-- Notification -->
         <button mat-icon-button
-                [matMenuTriggerFor]="notificationMenu"
-                class="notification-btn">
+        [matMenuTriggerFor]="notificationMenu">
 
-          <mat-icon>notifications</mat-icon>
+  <mat-icon
+    [matBadge]="unreadCount"
+    matBadgeColor="warn"
+    matBadgeOverlap="true"
+    matBadgeSize="small">
+    notifications
+  </mat-icon>
 
-          <span class="badge" *ngIf="unreadCount > 0">
-            {{ unreadCount }}
-          </span>
-        </button>
+</button>
+
 
         <!-- Profile -->
         <div class="profile">

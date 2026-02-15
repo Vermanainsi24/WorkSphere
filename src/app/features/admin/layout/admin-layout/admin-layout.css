@@ -232,3 +232,37 @@ mat-nav-list a mat-icon {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
 }
 
+.sidebar {
+  overflow: visible;
+}
+.badge {
+  background: #ef4444;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+
+  min-width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  padding: 0 6px;
+
+  margin-left: 8px;
+}
+.sidebar .mat-mdc-list-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sidebar .mat-icon {
+  font-size: 22px;
+}
+
+.sidebar {
+  overflow: visible; /* Important for badge */
+}

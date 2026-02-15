@@ -1,93 +1,70 @@
-<!-- ================= KPI SECTION ================= -->
+<div class="dashboard-viewport">
+  <header class="dashboard-header">
+    <div class="brand-group">
+      <h1>Operational Overview</h1>
+      <span class="status-indicator">
+        <span class="dot pulse"></span> Live Analytics System
+      </span>
+    </div>
+    <div class="action-group">
+      <button mat-icon-button class="subtle-refresh">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </div>
+  </header>
 
-<div class="kpi-grid">
+  <section class="kpi-container">
+  <div class="kpi-card total">
+    <div class="kpi-icon"><mat-icon>analytics</mat-icon></div>
+    <div class="kpi-info">
+      <label>Total Requests</label>
+      <h2>{{ totalRequests }}</h2>
+    </div>
+  </div>
 
-  <mat-card class="kpi-card">
-    <h4>Total Requests</h4>
-    <h2>{{ totalRequests }}</h2>
-  </mat-card>
+  <div class="kpi-card pending">
+    <div class="kpi-icon"><mat-icon>hourglass_top</mat-icon></div>
+    <div class="kpi-info">
+      <label>Pending</label>
+      <h2>{{ pendingCount }}</h2>
+    </div>
+  </div>
 
-  <mat-card class="kpi-card warning">
-    <h4>Pending Requests</h4>
-    <h2>{{ pendingCount }}</h2>
-  </mat-card>
+  <div class="kpi-card allocated">
+    <div class="kpi-icon"><mat-icon>verified</mat-icon></div>
+    <div class="kpi-info">
+      <label>Allocated</label>
+      <h2>{{ allocatedCount }}</h2>
+    </div>
+  </div>
 
-  <mat-card class="kpi-card success">
-    <h4>Allocated</h4>
-    <h2>{{ allocatedCount }}</h2>
-  </mat-card>
+  <div class="kpi-card awaited">
+    <div class="kpi-icon"><mat-icon>update</mat-icon></div>
+    <div class="kpi-info">
+      <label>Awaited</label>
+      <h2>{{ awaitedCount }}</h2>
+    </div>
+  </div>
+</section>
 
-  <mat-card class="kpi-card info">
-    <h4>Returned</h4>
-    <h2>{{ returnedCount }}</h2>
-  </mat-card>
+  <section class="analytics-grid">
+    <mat-card class="chart-card">
+      <div class="chart-header">
+        <h3>Requests Trend</h3>
+        <mat-icon>info_outline</mat-icon>
+      </div>
+      <div class="chart-body">
+        <canvas baseChart [data]="lineChartData" [options]="lineChartOptions" [type]="'line'"></canvas>
+      </div>
+    </mat-card>
 
+    <mat-card class="chart-card">
+      <div class="chart-header">
+        <h3>Status Mix</h3>
+      </div>
+      <div class="chart-body">
+        <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" [type]="'pie'"></canvas>
+      </div>
+    </mat-card>
+  </section>
 </div>
-
-
-<!-- ================= TABLE ================= -->
-
-
-
-
-<mat-card>
-  <h2>Recent Requests</h2>
-
-  <table mat-table [dataSource]="requests" class="mat-elevation-z1">
-
-    <!-- Employee Column -->
-    <ng-container matColumnDef="employee">
-      <th mat-header-cell *matHeaderCellDef> Employee </th>
-      <td mat-cell *matCellDef="let r"> {{ r.employeeName }} </td>
-    </ng-container>
-
-    <!-- Resource Column -->
-    <ng-container matColumnDef="resource">
-      <th mat-header-cell *matHeaderCellDef> Resource </th>
-      <td mat-cell *matCellDef="let r"> {{ r.resourceName }} </td>
-    </ng-container>
-
-    <!-- Priority Column -->
-    <ng-container matColumnDef="priority">
-      <th mat-header-cell *matHeaderCellDef> Priority </th>
-      <td mat-cell *matCellDef="let r">
-        <span class="priority-badge"
-              [ngClass]="r.priority.toLowerCase()">
-          {{ r.priority }}
-        </span>
-      </td>
-    </ng-container>
-
-    <!-- Date Column -->
-    <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef> Requested On </th>
-      <td mat-cell *matCellDef="let r">
-        {{ r.requestDate | date:'yyyy-MM-dd' }}
-      </td>
-    </ng-container>
-
-    <!-- STATUS ACTION COLUMN -->
-<ng-container matColumnDef="actions">
-  <th mat-header-cell *matHeaderCellDef> Change Status </th>
-  <td mat-cell *matCellDef="let r">
-
-  <select class="status-dropdown"
-        [(ngModel)]="r.status"
-        (ngModelChange)="changeStatus(r.requestId, $event)">
-
-  <option value="APPLIED">APPLIED</option>
-  <option value="ALLOCATED">ALLOCATED</option>
-  <option value="AWAITED">AWAITED</option>
-  <option value="RETURNED">RETURNED</option>
-
-</select>
-
-  </td>
-</ng-container>
-
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-  </table>
-</mat-card>

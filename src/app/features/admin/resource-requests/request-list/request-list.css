@@ -1,30 +1,272 @@
-.request-card {
-  padding: 20px;
+/* =================================================
+   PAGE BACKGROUND
+================================================= */
+
+.requests-page {
+  padding: 40px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
 }
 
-.priority {
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
+/* =================================================
+   CARD
+================================================= */
+
+.requests-card {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+  padding: 32px;
+  border-radius: 20px !important;
+  background: #ffffff;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid #f1f5f9;
 }
 
-.priority.high {
-  background: #f8d7da;
-  color: #721c24;
+/* =================================================
+   HEADER SECTION
+================================================= */
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 28px;
 }
 
-.priority.medium {
-  background: #fff3cd;
-  color: #856404;
+.title-group h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  color: #0f172a;
 }
 
-.priority.low {
-  background: #d4edda;
-  color: #155724;
+.status-indicator {
+  font-size: 13px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
 }
 
-table {
+/* Live green dot */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.6); }
+  70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
+
+/* =================================================
+   ALERT BANNER
+================================================= */
+
+.alert-banner {
+  background: #ecfdf5;
+  color: #065f46;
+  padding: 12px 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 14px;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.1);
+}
+
+/* =================================================
+   TABLE
+================================================= */
+
+.table-container {
+  overflow-x: auto;
+}
+
+.modern-table {
   width: 100%;
-  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.modern-table th {
+  text-align: left;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+  padding: 14px 12px;
+}
+
+.modern-table td {
+  padding: 16px 12px;
+  font-size: 14px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.modern-row {
+  transition: 0.2s ease;
+}
+
+.modern-row:hover {
+  background: #f8fafc;
+}
+
+/* =================================================
+   PRIORITY BADGE
+================================================= */
+
+.priority-badge {
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.priority-badge.high {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.priority-badge.medium {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.priority-badge.low {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+/* =================================================
+   STATUS DOT
+================================================= */
+
+.status-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-dot.applied {
+  background: #3b82f6;
+}
+
+.status-dot.allocated {
+  background: #22c55e;
+}
+
+.status-dot.awaited {
+  background: #f59e0b;
+}
+
+.status-dot.returned {
+  background: #6b7280;
+}
+
+.status-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+}
+
+/* =================================================
+   DROPDOWN
+================================================= */
+
+.modern-select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 13px;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.modern-select:hover {
+  border-color: #3b82f6;
+}
+
+.modern-select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+}
+
+/* =================================================
+   EMPTY STATE
+================================================= */
+
+.empty-state {
+  text-align: center;
+  padding: 60px 0;
+  color: #94a3b8;
+}
+
+.empty-state mat-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #cbd5e1;
+}
+
+/* =================================================
+   CENTER LOADER (PERFECT MIDDLE)
+===
+.requests-page {
+  position: relative;
+  padding: 40px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+}
+
+/* FULL CENTER LOADER */
+.page-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-box {
+  padding: 32px 40px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.loader-box p {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

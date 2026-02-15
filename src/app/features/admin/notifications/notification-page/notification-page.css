@@ -1,49 +1,112 @@
-.notification-container {
-  padding: 24px;
-  max-width: 800px;
-  margin: auto;
+/* Container & Layout */
+.notification-viewport {
+  padding: 40px;
+  background-color: #f8fafc;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.notification-viewport::-webkit-scrollbar { display: none; }
+
+.header-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
 }
 
 .page-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+}
+
+.unread-count {
+  background: #eef2ff;
+  color: #6366f1;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Compact Notification Item */
+.notif-item {
+  background: white;
+  border-radius: 12px;
+  padding: 12px 20px; /* Reduced vertical padding */
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 20px;
-  font-weight: 600;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
 }
 
-.notification-card {
-  margin-bottom: 15px;
-  padding: 16px;
-  transition: 0.3s ease;
+.notif-item:hover {
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
-.notification-card.unread {
-  border-left: 5px solid #3f51b5;
-  background: #f3f6ff;
+.notif-item.is-unread {
+  background: #ffffff;
+  border-left: 4px solid #6366f1; /* Indigo accent cite: image_d6921c.png */
 }
 
-.notif-content {
+/* Icon Box */
+.notif-icon {
+  width: 36px;
+  height: 36px;
+  background: #f1f5f9;
+  color: #94a3b8;
+  border-radius: 10px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
 }
 
-.message {
+.is-unread .notif-icon {
+  background: #eef2ff;
+  color: #6366f1;
+}
+
+/* Typography */
+.notif-body {
+  flex: 1;
+}
+
+.notif-message {
+  margin: 0;
+  font-size: 14px;
+  color: #334155;
   font-weight: 500;
 }
 
-.time {
-  font-size: 12px;
-  color: gray;
+.notif-time {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-.actions {
-  margin-top: 8px;
+/* Actions */
+.notif-actions button {
+  color: #94a3b8;
 }
 
-.empty {
+.notif-actions button:hover {
+  color: #6366f1;
+}
+
+/* Empty State */
+.empty-state {
   text-align: center;
-  margin-top: 40px;
-  color: gray;
+  padding: 60px;
+  color: #cbd5e1;
 }
+
+.empty-state mat-icon { font-size: 48px; width: 48px; height: 48px; }

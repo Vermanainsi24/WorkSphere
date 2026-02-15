@@ -1,37 +1,33 @@
-<div class="notification-container">
-
-  <h2 class="page-title">
-    <mat-icon>notifications</mat-icon>
-    Notifications
-  </h2>
-
-  <mat-card *ngFor="let notif of notifications"
-            class="notification-card"
-            [ngClass]="{'unread': !notif.isRead}">
-
-    <div class="notif-content">
-      <div class="message">
-        {{ notif.message }}
-      </div>
-
-      <div class="time">
-        {{ notif.createdAt | date:'short' }}
-      </div>
-    </div>
-
-    <div class="actions">
-      <button mat-button
-              color="primary"
-              *ngIf="!notif.isRead"
-              (click)="markAsRead(notif)">
-        Mark as Read
-      </button>
-    </div>
-
-  </mat-card>
-
-  <div *ngIf="notifications.length === 0" class="empty">
-    No notifications available.
+<div class="notification-viewport">
+  <div class="header-row">
+    <h2 class="page-title">Notifications</h2>
+    <!-- <span class="unread-count" *ngIf="unreadNotifications > 0">{{ unreadNotifications }} New</span> -->
   </div>
 
+  <div class="notif-list">
+    <div *ngFor="let notif of notifications" 
+         class="notif-item" 
+         [ngClass]="{'is-unread': !notif.isRead}">
+      
+      <div class="notif-icon">
+        <mat-icon>{{ notif.isRead ? 'notifications_none' : 'notifications_active' }}</mat-icon>
+      </div>
+
+      <div class="notif-body">
+        <p class="notif-message">{{ notif.message }}</p>
+        <span class="notif-time">{{ notif.createdAt | date:'MMM d, h:mm a' }}</span>
+      </div>
+
+      <div class="notif-actions" *ngIf="!notif.isRead">
+        <button mat-icon-button (click)="markAsRead(notif)" matTooltip="Mark as read">
+          <mat-icon>check_circle</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="notifications.length === 0" class="empty-state">
+    <mat-icon>notifications_off</mat-icon>
+    <p>All caught up!</p>
+  </div>
 </div>
