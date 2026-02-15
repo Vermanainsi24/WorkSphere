@@ -1,183 +1,74 @@
-<!-- <mat-sidenav-container class="layout-container">
-  <mat-sidenav #sidenav mode="side" opened class="sidebar">
-    <div class="sidebar-wrapper">
-      
-      <div class="logo-section">
-        <div class="logo-circle">
-          <mat-icon>workspace_premium</mat-icon>
-        </div>
-        <span class="brand-name">WorkSphere</span>
-      </div>
-
-      <mat-nav-list class="nav-list">
-        <a mat-list-item routerLink="/admin/dashboard" routerLinkActive="active-link" class="nav-item">
-          <mat-icon matListItemIcon>dashboard</mat-icon>
-          <span matListItemTitle>Dashboard</span>
-        </a>
-
-        <a mat-list-item routerLink="/admin/employees" routerLinkActive="active-link" class="nav-item">
-          <mat-icon matListItemIcon>people_alt</mat-icon>
-          <span matListItemTitle>Employees</span>
-        </a>
-
-        <a mat-list-item routerLink="/admin/inventory" routerLinkActive="active-link" class="nav-item">
-          <mat-icon matListItemIcon>inventory_2</mat-icon>
-          <span matListItemTitle>Resource Inventory</span>
-        </a>
-
-        <a mat-list-item routerLink="/admin/attendance" routerLinkActive="active-link" class="nav-item">
-          <mat-icon matListItemIcon>event_available</mat-icon>
-          <span matListItemTitle>📋 Resource Requests
-</span>
-        </a>
-
-        <div class="nav-divider"></div>
-
-        <a mat-list-item routerLink="/admin/settings" routerLinkActive="active-link" class="nav-item">
-          <mat-icon matListItemIcon>settings</mat-icon>
-          <span matListItemTitle>Settings</span>
-        </a>
-      </mat-nav-list>
-
-      <div class="sidebar-footer">
-        <div class="user-avatar-container">
-          <mat-icon class="avatar-icon">account_circle</mat-icon>
-        </div>
-        <div class="user-details">
-          <span class="u-name">Admin User</span>
-          <span class="u-role">Super Admin</span>
-        </div>
-        <button mat-icon-button class="logout-btn">
-          <mat-icon>logout</mat-icon>
-        </button>
-      </div>
-    </div>
-  </mat-sidenav>
-
-  <mat-sidenav-content class="main-content">
-   <mat-toolbar class="topbar">
-  <div class="breadcrumb">
-    <span>Administration</span>
-    <mat-icon>chevron_right</mat-icon>
-    <span class="current-page">Dashboard</span>
-  </div>
-  
-  <span class="spacer"></span>
-
-  <div class="toolbar-actions">
-    <button mat-icon-button class="notification-btn" [matBadge]="3" matBadgeColor="warn">
-      <mat-icon>notifications</mat-icon>
-    </button>
-
-    <button mat-flat-button class="add-btn" routerLink="/admin/add-employee">
-      <mat-icon>add</mat-icon>
-      Add Employee
-    </button>
-
-    
-  </div>
-</mat-toolbar>
-
-    <div class="content-body">
-      <router-outlet></router-outlet>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
-
 <mat-sidenav-container class="layout-container">
 
-  <!-- SIDEBAR -->
+  <!-- ================= SIDEBAR ================= -->
   <mat-sidenav mode="side" opened class="sidebar">
 
     <!-- Logo -->
-
     <div class="logo">
-      
       <h2>WorkSphere</h2>
       <span class="subtitle">Admin Panel</span>
     </div>
 
-    <!-- MAIN NAV -->
     <mat-nav-list>
 
       <!-- Dashboard -->
-      <a mat-list-item routerLink="/admin/dashboard"
-         routerLinkActive="active-link">
+      <a mat-list-item routerLink="/admin/dashboard" routerLinkActive="active-link">
         <mat-icon>dashboard</mat-icon>
         <span>Dashboard</span>
       </a>
 
-      <!-- SECTION: RESOURCE MANAGEMENT -->
       <div class="section-title">Resource Management</div>
 
-      <a mat-list-item routerLink="/admin/inventory"
-         routerLinkActive="active-link">
+      <a mat-list-item routerLink="/admin/inventory" routerLinkActive="active-link">
         <mat-icon>inventory_2</mat-icon>
         <span>Inventory</span>
       </a>
 
-      <a mat-list-item routerLink="/admin/requests"
-         routerLinkActive="active-link">
+      <a mat-list-item routerLink="/admin/requests" routerLinkActive="active-link">
         <mat-icon>assignment</mat-icon>
         <span>Requests</span>
-
-        <span class="spacer"></span>
-
-        <!-- <span class="badge" *ngIf="pendingRequests > 0">
-          {{ pendingRequests }}
-        </span> -->
       </a>
 
-      <a mat-list-item routerLink="/admin/history"
-         routerLinkActive="active-link">
+      <a mat-list-item routerLink="/admin/history" routerLinkActive="active-link">
         <mat-icon>history</mat-icon>
         <span>Allocation History</span>
       </a>
 
-      <!-- SECTION: USER MANAGEMENT -->
       <div class="section-title">User Management</div>
 
-      <a mat-list-item routerLink="/admin/add-employee"
-         routerLinkActive="active-link">
+      <a mat-list-item routerLink="/admin/add-employee" routerLinkActive="active-link">
         <mat-icon>person_add</mat-icon>
         <span>Add Employee</span>
       </a>
 
-      <a mat-list-item routerLink="/admin/employees"
-         routerLinkActive="active-link">
+      <a mat-list-item routerLink="/admin/employees" routerLinkActive="active-link">
         <mat-icon>groups</mat-icon>
         <span>Manage Employees</span>
       </a>
 
-      <!-- SECTION: SKILL ANALYSIS -->
       <div class="section-title">Skill Analysis</div>
 
-      <a mat-list-item routerLink="/admin/analytics"
-         routerLinkActive="active-link">
+      <a mat-list-item routerLink="/admin/analytics" routerLinkActive="active-link">
         <mat-icon>analytics</mat-icon>
         <span>Skill Analytics</span>
       </a>
 
-      <a mat-list-item routerLink="/admin/reports"
-         routerLinkActive="active-link">
+      <a mat-list-item routerLink="/admin/reports" routerLinkActive="active-link">
         <mat-icon>description</mat-icon>
         <span>Reports</span>
       </a>
 
-      <!-- Notifications -->
       <div class="section-title">System</div>
 
-      <a mat-list-item routerLink="/admin/notifications"
-         routerLinkActive="active-link">
+      <a mat-list-item routerLink="/admin/notification" routerLinkActive="active-link">
         <mat-icon>notifications</mat-icon>
         <span>Notifications</span>
 
         <span class="spacer"></span>
 
         <span class="badge" *ngIf="unreadNotifications > 0">
-  {{ unreadNotifications }}
-</span>
-
+          {{ unreadNotifications }}
+        </span>
       </a>
 
       <a mat-list-item routerLink="/login">
@@ -188,58 +79,56 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <!-- CONTENT AREA -->
+  <!-- ================= MAIN CONTENT ================= -->
   <mat-sidenav-content>
 
-    <!-- <mat-toolbar class="topbar">
-      <span>Admin Dashboard</span>
-      <span class="spacer"></span>
-
-      <button mat-icon-button
-              matBadge="{{ unreadNotifications }}"
-              matBadgeColor="warn">
-        <mat-icon>notifications</mat-icon>
-      </button>
-
-      <button mat-icon-button>
-        <mat-icon>account_circle</mat-icon>
-      </button>
-    </mat-toolbar> -->
-
+    <!-- TOP NAVBAR -->
     <div class="top-bar">
 
-  <button mat-icon-button
-          [matMenuTriggerFor]="notificationMenu"
-          class="notification-btn">
+      <div class="left-section">
+        <h3>Admin Dashboard</h3>
+      </div>
 
-    <mat-icon>notifications</mat-icon>
+      <div class="right-section">
 
-    <span class="badge" *ngIf="unreadCount > 0">
-      {{ unreadCount }}
-    </span>
+        <!-- Notification -->
+        <button mat-icon-button
+                [matMenuTriggerFor]="notificationMenu"
+                class="notification-btn">
 
-  </button>
+          <mat-icon>notifications</mat-icon>
 
-  <mat-menu #notificationMenu="matMenu">
-    <ng-container *ngIf="notifications.length > 0; else noNotifications">
-      
-      <button mat-menu-item *ngFor="let notif of notifications">
-        {{ notif.message }}
-      </button>
+          <span class="badge" *ngIf="unreadCount > 0">
+            {{ unreadCount }}
+          </span>
+        </button>
 
-    </ng-container>
+        <!-- Profile -->
+        <div class="profile">
+          <mat-icon>account_circle</mat-icon>
+          <span>Admin</span>
+        </div>
 
-    <ng-template #noNotifications>
-      <button mat-menu-item disabled>
-        No new notifications
-      </button>
-    </ng-template>
+      </div>
 
-  </mat-menu>
+      <!-- Notification Menu -->
+      <mat-menu #notificationMenu="matMenu">
+        <ng-container *ngIf="notifications.length > 0; else noNotifications">
+          <button mat-menu-item *ngFor="let notif of notifications">
+            {{ notif.message }}
+          </button>
+        </ng-container>
 
-</div>
+        <ng-template #noNotifications>
+          <button mat-menu-item disabled>
+            No new notifications
+          </button>
+        </ng-template>
+      </mat-menu>
 
+    </div>
 
+    <!-- ROUTER OUTLET -->
     <div class="content">
       <router-outlet></router-outlet>
     </div>

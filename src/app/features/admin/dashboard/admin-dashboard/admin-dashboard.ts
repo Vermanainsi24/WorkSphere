@@ -1,7 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+
+import { ResourceRequestService } from '../../../../core/services/resource-request.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -9,24 +14,76 @@ import { MatTableModule } from '@angular/material/table';
   imports: [
     CommonModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule,
+    FormsModule   // IMPORTANT
   ],
   templateUrl: './admin-dashboard.html',
   styleUrls: ['./admin-dashboard.css']
 })
-export class AdminDashboardComponent {
+export class AdminDashboardComponent implements OnInit {
 
-  // Mock Data (replace with API later)
-  totalCategories = 5;
-  totalResources = 25;
-  pendingRequests = 8;
-  allocatedResources = 12;
+  requests: any[] = [];
+  displayedColumns: string[] = ['employee', 'resource', 'priority', 'date','actions'];
 
-  displayedColumns: string[] = ['employee', 'resource', 'priority', 'date'];
+  totalRequests = 0;
+  pendingCount = 0;
+  allocatedCount = 0;
+  returnedCount = 0;
 
-  recentRequests = [
-    { employee: 'Aman', resource: 'Laptop', priority: 'HIGH', date: '2026-02-10' },
-    { employee: 'Riya', resource: 'Monitor', priority: 'MEDIUM', date: '2026-02-11' },
-    { employee: 'Rahul', resource: 'Chair', priority: 'LOW', date: '2026-02-11' }
-  ];
+  ngOnInit() {
+    this.loadRequests();
+  }
+
+ 
+
+
+  constructor(private resourceService: ResourceRequestService) {}
+
+  // ngOnInit(): void {
+  //   this.loadRequests();
+  // }
+
+  // loadRequests(): void {
+  //   this.resourceService.getAllRequests()
+  //     .subscribe({
+  //       next: (data) => {
+  //         this.requests = data;
+  //       },
+  //       error: (err) => {
+  //         console.error('Failed to load requests', err);
+  //       }
+  //     });
+  // }
+   loadRequests() {
+    this.resourceService.getAllRequests()
+      .subscribe({
+        next: (data) => {
+          this.requests = data;
+
+          // ✅ Calculate KPI values here
+          this.totalRequests = this.requests.length;
+          this.pendingCount = this.requests.filter(r => r.status === 'APPLIED').length;
+          this.allocatedCount = this.requests.filter(r => r.status === 'ALLOCATED').length;
+          this.returnedCount = this.requests.filter(r => r.status === 'RETURNED').length;
+        },
+        error: (err) => {
+          console.error('Failed to load requests', err);
+        }
+      });
+  }
+changeStatus(id: number, newStatus: string) {
+
+  this.resourceService.updateStatus(id, newStatus)
+    .subscribe({
+      next: () => {
+        this.loadRequests();   // refresh table
+      },
+      error: (err) => {
+        console.error('Status update failed', err);
+      }
+    });
+}
+
+
 }

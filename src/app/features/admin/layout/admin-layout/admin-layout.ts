@@ -8,6 +8,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
+import { CommonModule } from '@angular/common';   // 👈 ADD THIS
 
 import { NotificationService, Notification } from '../../../../core/services/notification.service';
 
@@ -23,7 +24,7 @@ import { NotificationService, Notification } from '../../../../core/services/not
     MatButtonModule,
     MatBadgeModule,
     MatDividerModule,
-    MatMenuModule
+    MatMenuModule,CommonModule
   ],
   templateUrl: './admin-layout.html',
   styleUrls: ['./admin-layout.css']

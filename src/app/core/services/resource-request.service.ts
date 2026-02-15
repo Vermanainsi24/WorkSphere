@@ -11,7 +11,7 @@ export class ResourceRequestService {
 
   constructor(private http: HttpClient) {}
 
-  // private baseUrl = 'http://localhost:8080/api/resource-request';
+  private baseUrl = 'http://localhost:8080/api/resource-request';
     getAllResources() {
       return this.http.get<any[]>(
         'http://localhost:8080/api/resources/all'
@@ -24,6 +24,24 @@ export class ResourceRequestService {
         payload
       );
     }
+    getAllRequests() {
+  return this.http.get<any[]>(
+    'http://localhost:8080/api/resource-request/admin/all'
+  );
+}
+//   updateStatus(id: number, status: string) {
+//   return this.http.put(
+//     `http://localhost:8080/api/resource-request/update-status/${id}?status=${status}`,
+//     {}
+//   );
+// }
+updateStatus(id: number, status: string) {
+  return this.http.put(
+    `${this.baseUrl}/update-status/${id}?status=${status}`,
+    {},
+    { responseType: 'text' }  // 👈 VERY IMPORTANT
+  );
+}
 
 
 }
