@@ -29,4 +29,7 @@ export class NotificationService {
   markAsRead(id: number): Observable<any> {
     return this.http.put(`${this.baseUrl}/${id}/read`, {});
   }
+   getMyNotifications() {
+    return this.http.get<any[]>(`${this.baseUrl}/my`);
+  }
 }

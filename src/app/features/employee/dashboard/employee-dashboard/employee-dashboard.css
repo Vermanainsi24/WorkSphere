@@ -1,59 +1,77 @@
-.greeting {
-  margin-bottom: 20px;
+/* Layout Container */
+.dashboard-viewport {
+  padding: 40px;
+  background-color: #fcfcfd;
+  min-height: 100vh;
 }
 
+.header-main { font-size: 32px; font-weight: 850; color: #111827; margin: 0; }
+.header-sub { color: #6b7280; font-size: 1.1rem; margin-bottom: 40px; }
+
+/* KPI GRID */
 .kpi-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-bottom: 25px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
 }
 
 .kpi-card {
-  padding: 20px;
-  text-align: center;
+  height: 180px;
+  border-radius: 24px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none !important;
+  transition: transform 0.3s ease;
 }
 
-.kpi-card p {
-  font-size: 26px;
-  font-weight: bold;
-  margin-top: 10px;
+.kpi-card:hover { transform: translateY(-5px); }
+
+/* KPI Info Text */
+.kpi-info { text-align: center; margin-top: 15px; }
+.kpi-info .label { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 5px; }
+.kpi-info .value { font-size: 36px; font-weight: 800; }
+
+/* STYLE 1: SOLID NAVY GRADIENT */
+.solid-blue {
+  background: linear-gradient(135deg, #312e81 0%, #1e1b4b 100%) !important;
+  color: white;
+  box-shadow: 0 20px 25px -5px rgba(49, 46, 129, 0.2);
+}
+.solid-blue .kpi-icon-wrapper { background: rgba(255,255,255,0.15); color: white; }
+
+/* STYLE 2: NEON OUTLINE GREEN */
+.outline-green {
+  background: white !important;
+  border: 2px solid #10b981 !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+  color: #1f2937;
+}
+.outline-green .kpi-icon-wrapper { background: #f0fdf4; color: #10b981; }
+
+/* STYLE 3: NEON OUTLINE RED */
+.outline-red {
+  background: white !important;
+  border: 2px solid #efb944 !important;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.1);
+  color: #1f2937;
+}
+.outline-red .kpi-icon-wrapper { background: #fef2f2; color: #ef4444; }
+
+/* Icon Styling */
+.kpi-icon-wrapper {
+  width: 50px; height: 50px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
 }
 
-.success {
-  background: #d4edda;
-}
-
-.warning {
-  background: #fff3cd;
-}
-
-.quick-action {
-  margin-bottom: 30px;
-}
-
-.table-card {
-  padding: 20px;
-}
-
-.status {
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.status.allocated {
-  background: #d4edda;
-  color: #155724;
-}
-
-.status.applied {
-  background: #fff3cd;
-  color: #856404;
-}
-
-.status.rejected {
-  background: #f8d7da;
-  color: #721c24;
+/* CHARTS */
+.charts-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.chart-box {
+  background: white;
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
 }

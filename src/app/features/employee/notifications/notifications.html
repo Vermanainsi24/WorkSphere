@@ -1,11 +1,70 @@
-<mat-card class="notification-card">
-  <h2>Notifications</h2>
+<!-- <div class="notification-container">
 
-  <mat-list>
-    <mat-list-item *ngFor="let note of notifications">
-      <mat-icon matListIcon color="primary">notifications</mat-icon>
-      <div matLine>{{ note.message }}</div>
-      <div matLine class="time">{{ note.time }}</div>
-    </mat-list-item>
-  </mat-list>
-</mat-card>
+  <h2>My Notifications</h2>
+
+  <div *ngIf="isLoading">Loading...</div>
+
+  <div *ngIf="!isLoading && notifications.length === 0" class="empty">
+    No notifications yet.
+  </div>
+
+  <div *ngFor="let n of notifications" class="notification-card">
+
+    <div class="notif-message">
+      {{ n.message }}
+    </div>
+
+    <div class="notif-date">
+      {{ n.createdAt | date:'medium' }}
+    </div>
+
+  </div>
+
+</div> -->
+<div class="notification-viewport">
+  <div class="header-section">
+    <div class="title-group">
+      <h1 class="saas-title">Notifications</h1>
+      <p class="saas-subtitle">Stay updated with your latest resource allocations and requests.</p>
+    </div>
+    <button mat-stroked-button color="primary" class="btn-clear">
+      Mark all as read
+    </button>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-state">
+    <mat-spinner diameter="40"></mat-spinner>
+    <span>Syncing notifications...</span>
+  </div>
+
+  <div *ngIf="!isLoading && notifications.length === 0" class="empty-state">
+    <mat-icon>notifications_off</mat-icon>
+    <h3>All caught up!</h3>
+    <p>You don't have any new notifications at the moment.</p>
+  </div>
+
+  <div class="notification-list" *ngIf="!isLoading && notifications.length > 0">
+    <div *ngFor="let n of notifications" 
+         class="notification-card" 
+         [class.unread]="!n.read">
+      
+      <div class="card-status-indicator"></div>
+      
+      <div class="card-icon-container">
+        <mat-icon>{{ n.type === 'SUCCESS' ? 'check_circle' : 'info' }}</mat-icon>
+      </div>
+
+      <div class="card-content">
+        <div class="message-row">
+          <p class="message-text">{{ n.message }}</p>
+          <span class="date-tag">{{ n.createdAt | date:'shortTime' }}</span>
+        </div>
+        <div class="meta-row">
+          <span class="full-date">{{ n.createdAt | date:'mediumDate' }}</span>
+          <button mat-button class="btn-action" *ngIf="!n.read">Mark as read</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

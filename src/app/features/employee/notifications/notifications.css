@@ -1,0 +1,139 @@
+/* Container & Layout */
+.notification-viewport {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 24px;
+}
+
+.saas-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.saas-subtitle {
+  color: #64748b;
+  margin: 4px 0 0;
+  font-size: 1rem;
+}
+
+/* Professional Notification Card */
+.notification-card {
+  display: flex;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.notification-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  border-color: #cbd5e1;
+}
+
+/* Unread State Indicators */
+.notification-card.unread {
+  background: #f8fafc;
+  border-left: 4px solid #3b82f6; /* Indigo highlight for new items */
+}
+
+.card-icon-container {
+  background: #f1f5f9;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  color: #64748b;
+}
+
+.unread .card-icon-container {
+  background: #dbeafe;
+  color: #3b82f6;
+}
+
+/* Content Alignment */
+.card-content {
+  flex: 1;
+}
+
+.message-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.message-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.date-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+  white-space: nowrap;
+  margin-left: 12px;
+}
+
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.full-date {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.btn-action {
+  font-size: 0.8rem !important;
+  height: 30px !important;
+  line-height: 30px !important;
+  padding: 0 12px !important;
+  color: #3b82f6 !important;
+}
+
+/* Empty & Loading States */
+.empty-state, .loading-state {
+  text-align: center;
+  padding: 80px 0;
+  color: #94a3b8;
+}
+
+.empty-state mat-icon {
+  font-size: 64px;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  opacity: 0.3;
+}
+
+.empty-state h3 {
+  color: #1e293b;
+  margin-bottom: 8px;
+}

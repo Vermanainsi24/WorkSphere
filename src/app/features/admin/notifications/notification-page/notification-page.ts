@@ -25,6 +25,9 @@ export class NotificationPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadNotifications();
+        setInterval(() => {
+      this.loadNotifications();
+    }, 10000);
   }
 
   loadNotifications() {

@@ -1,26 +1,43 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
+import { Component, OnInit } from '@angular/core';
+import { NotificationService } from '../../../core/services/notification.service';
+import { CommonModule, DatePipe } from '@angular/common';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-notifications',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatIconModule,
-    MatListModule
-  ],
+  selector: 'app-employee-notification',
+  imports :[DatePipe,CommonModule,MatProgressSpinnerModule,MatIcon],
   templateUrl: './notifications.html',
   styleUrls: ['./notifications.css']
 })
-export class NotificationsComponent {
+export class NotificationsComponent implements OnInit {
 
-  notifications = [
-    { message: 'Laptop request approved', time: '2 hours ago' },
-    { message: 'Projector available now', time: '1 day ago' }
-  ];
+  notifications: any[] = [];
+  isLoading = false;
 
+  constructor(private notificationService: NotificationService) {}
+  ngOnInit() {
+  this.loadNotifications();
+
+  setInterval(() => {
+    this.loadNotifications();
+  }, 10000);
+}
+
+
+  loadNotifications(): void {
+    this.isLoading = true;
+
+    this.notificationService.getMyNotifications()
+      .subscribe({
+        next: (data) => {
+          this.notifications = data;
+          this.isLoading = false;
+        },
+        error: (err) => {
+          console.error('Failed to load notifications', err);
+          this.isLoading = false;
+        }
+      });
+  }
 }

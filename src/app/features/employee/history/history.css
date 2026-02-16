@@ -1,0 +1,197 @@
+/* Container Layout */
+.history-viewport {
+  padding: 40px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+
+.page-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.page-subtitle {
+  color: #64748b;
+  margin-top: 6px;
+  font-size: 1.05rem;
+}
+
+/* SaaS Search Box */
+.search-box {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 300px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: #1e293b;
+  width: 100%;
+}
+
+.search-box mat-icon { color: #94a3b8; }
+
+/* Table Card Styling */
+.elite-table-card {
+  border-radius: 24px !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05) !important;
+  overflow: hidden;
+  padding: 0 !important; /* Table looks better edge-to-edge */
+}
+
+/* Header & Cell Styling */
+.saas-table {
+  width: 100%;
+  background: white;
+}
+
+::ng-deep .saas-table .mat-mdc-header-cell {
+  background-color: #f8fafc !important;
+  color: #64748b !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.05em;
+  padding: 20px !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+::ng-deep .saas-table .mat-mdc-cell {
+  padding: 20px !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  color: #1e293b;
+}
+
+/* Row Hover Interaction */
+.history-row {
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.history-row:hover {
+  background-color: #f1f5f9 !important;
+}
+
+/* Resource Cell with Icon */
+.resource-cell { display: flex; align-items: center; gap: 14px; }
+
+.icon-box {
+  width: 40px; height: 40px; background: #eff6ff;
+  border-radius: 10px; display: flex; align-items: center;
+  justify-content: center; color: #3b82f6;
+}
+
+.resource-info .main-text { display: block; font-weight: 600; font-size: 0.95rem; }
+.resource-info .sub-text { display: block; font-size: 0.8rem; color: #94a3b8; }
+
+/* Status Badges */
+.status-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 0.85rem;
+}
+
+.status-badge .dot { width: 6px; height: 6px; border-radius: 50%; }
+
+/* Status Colors */
+[data-status="ALLOCATED"] { background: #f0fdf4; color: #166534; }
+[data-status="ALLOCATED"] .dot { background: #22c55e; }
+
+[data-status="APPLIED"] { background: #fffbeb; color: #92400e; }
+[data-status="APPLIED"] .dot { background: #f59e0b; }
+
+[data-status="REJECTED"] { background: #fef2f2; color: #991b1b; }
+[data-status="REJECTED"] .dot { background: #ef4444; }
+
+/* Priority Tags */
+.priority-tag {
+  font-size: 0.75rem; font-weight: 700; padding: 4px 8px; border-radius: 6px;
+}
+.priority-high { background: #fee2e2; color: #ef4444; }
+.priority-medium { background: #e0e7ff; color: #4338ca; }
+
+/* =========================================
+   SHINY PILL-STYLE BADGES
+   ========================================= */
+
+.solid-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Fixed sizing for alignment */
+  min-width: 110px; 
+  height: 32px;
+  padding: 0 16px;
+  
+  /* Increased Radius for a smooth curved look */
+  border-radius: 50px; 
+  
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #ffffff !important;
+  
+  /* Shiny Effect: Inner highlight + Shadow */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 
+              0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+.solid-badge:hover {
+  transform: scale(1.05); /* Interactive pop effect */
+}
+
+/* --- SHINY PRIORITY COLORS --- */
+
+.priority-high {
+  /* Shiny Red Gradient */
+  background: linear-gradient(180deg, #ff4d4d 0%, #cc0000 100%) !important;
+}
+
+.priority-medium {
+  /* Shiny Blue Gradient */
+  background: linear-gradient(180deg, #4da6ff 0%, #0066cc 100%) !important;
+}
+
+.priority-low {
+  /* Shiny Yellow Gradient */
+  background: linear-gradient(180deg, #facc15 0%, #ca8a04 100%) !important;
+}
+
+/* --- SHINY STATUS COLORS --- */
+
+.status-allocated {
+  /* Shiny Green Gradient */
+  background: linear-gradient(180deg, #4ade80 0%, #16a34a 100%) !important;
+}
+
+.status-awaited {
+  /* Matching Yellow Shiny */
+  background: linear-gradient(180deg, #facc15 0%, #ca8a04 100%) !important;
+}
+
+.status-applied {
+  /* Matching Blue Shiny */
+  background: linear-gradient(180deg, #60a5fa 0%, #2563eb 100%) !important;
+}

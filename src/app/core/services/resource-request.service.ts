@@ -42,6 +42,19 @@ updateStatus(id: number, status: string) {
     { responseType: 'text' }  // 👈 VERY IMPORTANT
   );
 }
+getEmployeeKpi() {
+  return this.http.get<any>(
+    'http://localhost:8080/api/resource-request/employee/kpi'
+  );
+}
+
+getMyRequests() {
+  return this.http.get<any[]>(
+    'http://localhost:8080/api/resource-request/employee/my'
+  );
+}
+
+
 
 
 }
